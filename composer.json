@@ -1,0 +1,43 @@
+{
+    "name": "sjorso/pinyin",
+    "description": "Chinese to pinyin converter",
+    "license": "MIT",
+    "homepage": "https://github.com/SjorsO/pinyin-package",
+    "keywords": [
+        "chinese",
+        "pinyin",
+        "convert"
+    ],
+    "authors": [
+        {
+            "name": "Sjors Ottjes",
+            "email": "sjorsottjes@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SjorsO\\Pinyin\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SjorsO\\Pinyin\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SjorsO\\Pinyin\\Providers\\PinyinProvider"
+            ],
+            "aliases": {
+                "TextEncoding": "SjorsO\\Pinyin\\Facades\\Pinyin"
+            }
+        }
+    }
+}
