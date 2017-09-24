@@ -1,6 +1,6 @@
 <?php
 
-namespace SjorsO\TextFile\Providers;
+namespace SjorsO\Pinyin\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use SjorsO\Pinyin\Pinyin;
