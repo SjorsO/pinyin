@@ -1,7 +1,7 @@
 # Readme
 Convert Chinese to pinyin
 
-Originally made for [subtitletools.com](https://subtitletools.com)
+Originally made for [subtitletools.com](https://subtitletools.com/make-chinese-pinyin-subtitles)
 
 ## Install
 ```bash
@@ -15,6 +15,9 @@ $pinyinConverter = new \SjorsO\Pinyin\Pinyin();
 // wǒ xiǎng nǐ yǒu gè hěn hǎo de guānyú Lumbergh 
 $pinyin = $pinyinConverter->convert('我想你有个很好的关于Lumbergh');
 ```
+
+## Dictionary
+the `pinyin-characters-array.php` file is a parsed version of [CC-CEDICT](https://www.mdbg.net/chinese/dictionary?page=cc-cedict) 
 
 ## License
 
