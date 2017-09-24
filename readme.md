@@ -14,6 +14,9 @@ $pinyinConverter = new \SjorsO\Pinyin\Pinyin();
  
 // wǒ xiǎng nǐ yǒu gè hěn hǎo de guānyú Lumbergh 
 $pinyin = $pinyinConverter->convert('我想你有个很好的关于Lumbergh');
+ 
+// Milton. fāshēng shénmeshì qíng le?
+$pinyin = $pinyinConverter->convert('Milton.发生什么事情了？');
 ```
 
 ## Dictionary
