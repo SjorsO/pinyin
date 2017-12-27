@@ -32,25 +32,23 @@ class Pinyin
 
     protected function prepareInput($string)
     {
-        $ReplaceCharsWith = [
+        $string = strtr($string, [
             '【' => '[',
             '】' => ']',
             '（' => '(',
             '）' => ')',
             '「' => '“',
             '」' => '”',
-        ];
-
-        $string = strtr($string, $ReplaceCharsWith);
+        ]);
 
         // add a space before each english word
         $string = preg_replace_callback('/[a-z0-9_-]+/i', function ($matches) {
-            return " {$matches[0]}";
+            return ' '.$matches[0];
         }, $string);
 
         // add a space before parentheses, brackets, opening quotes and ampersands
         $string = preg_replace_callback('/\(|\[|“|&/', function ($matches) {
-            return " {$matches[0]}";
+            return ' '.$matches[0];
         }, $string);
 
         return $string;
@@ -58,11 +56,10 @@ class Pinyin
 
     protected function formatOutput($string)
     {
-        $string = str_replace('( ', '(', $string);
-        $string = str_replace('[ ', '[', $string);
-        $string = str_replace('“ ', '“', $string);
-
-        $ReplaceCharsWith = [
+        $string = strtr($string, [
+            '( ' => '(',
+            '[ ' => '[',
+            '“ ' => '"',
             '，' => ',',
             '。' => '.',
             '！' => '!',
@@ -72,9 +69,7 @@ class Pinyin
             '”' => '"',
             '‘' => '\'',
             '’' => '\'',
-        ];
-
-        $string = strtr($string, $ReplaceCharsWith);
+        ]);
 
         // if lines start with a quote, #, or *, remove spaces following it
         $string = preg_replace("/^(#|\*|\'|\") /", '$1', $string);
