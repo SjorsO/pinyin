@@ -9,7 +9,7 @@ class PinyinProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->app->singleton(Pinyin::class, function($app) {
+        $this->app->singleton(Pinyin::class, function ($app) {
             return new \SjorsO\Pinyin\Pinyin();
         });
     }
