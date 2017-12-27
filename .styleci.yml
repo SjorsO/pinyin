@@ -1,0 +1,15 @@
+preset: laravel
+
+linting: true
+
+enabled:
+  - alpha_ordered_imports
+
+disabled:
+  - length_ordered_imports
+  - method_visibility_required
+  - simplified_null_return
+
+finder:
+  exclude:
+    - "vendor"
