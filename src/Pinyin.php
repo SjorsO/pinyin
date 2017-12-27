@@ -8,12 +8,12 @@ class Pinyin
 
     public function __construct()
     {
-        $this->chineseToPinyinArray = include('pinyin-character-array.php');
+        $this->chineseToPinyinArray = include 'pinyin-character-array.php';
     }
 
     public function convert($string)
     {
-        if(strlen($string) === mb_strlen($string, "UTF-8")) {
+        if (strlen($string) === mb_strlen($string, 'UTF-8')) {
             return $string;
         }
 
@@ -23,7 +23,7 @@ class Pinyin
             strtr($prepared, $this->chineseToPinyinArray)
         );
 
-        if($converted === $this->formatOutput($prepared)) {
+        if ($converted === $this->formatOutput($prepared)) {
             return $string;
         }
 
@@ -80,13 +80,13 @@ class Pinyin
         $string = preg_replace("/^(#|\*|\'|\") /", '$1', $string);
 
         // fix spaces in urls (www. zimuku. tv)
-        $string = preg_replace_callback('/(www\. [a-z]+\. [a-z]{2,3})/i', function($matches) {
-            return str_replace(" ", "", $matches[0]);
+        $string = preg_replace_callback('/(www\. [a-z]+\. [a-z]{2,3})/i', function ($matches) {
+            return str_replace(' ', '', $matches[0]);
         }, $string);
 
         // fix spaces in url start (http:// www.)
-        $string = preg_replace_callback('/(https?:\/\/ www)/', function($matches) {
-            return str_replace(" ", "", $matches[0]);
+        $string = preg_replace_callback('/(https?:\/\/ www)/', function ($matches) {
+            return str_replace(' ', '', $matches[0]);
         }, $string);
 
         //  replace more than 5 spaces in a row with a placeholder
