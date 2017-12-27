@@ -13,3 +13,4 @@ disabled:
 finder:
   exclude:
     - "vendor"
+    - "src/pinyin-character-array.php"
